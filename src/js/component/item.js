@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export function Item() {
-	const [tasks, setTasks] = useState({ lista: [], texto: "Hola" });
+	const [tasks, setTasks] = useState({ lista: [], texto: "What??" });
 	let myTodo = { lista: tasks.lista, texto: tasks.texto };
 
 	const formInput = e => {
@@ -25,9 +25,9 @@ export function Item() {
 			<li key={Math.random() * 60}>
 				<div className="item">
 					<label>{task}</label>
-					<button className="remove" onClick={() => removeTask(task)}>
-						x
-					</button>
+					<button
+						className="destroy"
+						onClick={() => removeTask(task)}></button>
 				</div>
 			</li>
 		);
@@ -35,19 +35,23 @@ export function Item() {
 
 	return (
 		<>
-			<div>
-				<form onSubmit={formInput}>
-					<input
-						type="text"
-						value={tasks.texto}
-						onChange={createItem}
-					/>
-				</form>
+			<div className="todoapp">
+				<header className="header">
+					<h1>todos</h1>
+					<form onSubmit={formInput}>
+						<input
+							type="text"
+							value={tasks.texto}
+							onChange={createItem}
+							className="new-todo"
+						/>
+					</form>
+				</header>
 			</div>
-			<div>
+			<div className="main">
 				<ul className="todo-list">{tasksToRender}</ul>
 			</div>
-			<div>
+			<div className="footer">
 				<span className="todo-count">
 					<strong>{tasks.lista.length}</strong> item left
 				</span>
