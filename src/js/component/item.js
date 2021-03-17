@@ -47,6 +47,11 @@ export function Item() {
 			<div>
 				<ul className="todo-list">{tasksToRender}</ul>
 			</div>
+			<div>
+				<span className="todo-count">
+					<strong>{tasks.lista.length}</strong> item left
+				</span>
+			</div>
 		</>
 	);
 }
